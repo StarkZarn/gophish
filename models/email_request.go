@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/mail"
 
-	"github.com/gophish/gomail"
+	"github.com/StarkZarn/gomail"
 	"github.com/gophish/gophish/config"
 	log "github.com/gophish/gophish/logger"
 	"github.com/gophish/gophish/mailer"
