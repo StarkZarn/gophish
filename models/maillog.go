@@ -14,9 +14,9 @@ import (
 	"time"
 
 	"github.com/StarkZarn/gomail"
-	"github.com/gophish/gophish/config"
-	log "github.com/gophish/gophish/logger"
-	"github.com/gophish/gophish/mailer"
+	"github.com/StarkZarn/gophish/config"
+	log "github.com/StarkZarn/gophish/logger"
+	"github.com/StarkZarn/gophish/mailer"
 )
 
 // MaxSendAttempts set to 8 since we exponentially backoff after each failed send
