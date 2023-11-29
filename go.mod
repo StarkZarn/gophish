@@ -1,4 +1,4 @@
-module github.com/gophish/gophish
+module github.com/StarkZarn/gophish
 
 go 1.21
 
@@ -11,7 +11,7 @@ require (
 	github.com/emersion/go-imap v1.0.4
 	github.com/emersion/go-message v0.17.0
 	github.com/go-sql-driver/mysql v1.7.1
-	github.com/gophish/gomail v0.0.0-20200818021916-1f6d0dfd512e
+	github.com/StarkZarn/gomail v0.0.0-20200818021916-1f6d0dfd512e
 	github.com/gorilla/context v1.1.2
 	github.com/gorilla/csrf v1.6.2
 	github.com/gorilla/handlers v1.4.2
