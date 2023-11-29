@@ -13,7 +13,7 @@
   "homepage": "https://getgophish.com",
   "devDependencies": {
     "@babel/core": "^7.23.5",
-    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-env": "^7.23.5",
     "babel-loader": "^8.3.0",
     "clean-css": "^4.2.1",
     "gulp": "^4.0.0",
