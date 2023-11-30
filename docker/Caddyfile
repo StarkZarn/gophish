@@ -1,0 +1,87 @@
+(tls) {
+        tls admin@example.com {
+                key_type p384
+        }
+}
+
+https://gophish.example.com {
+
+  import tls
+
+
+  header {
+        # Enable HTTP Strict Transport Security (HSTS) to force clients to always connect via HTTPS
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+        # Enable cross-site filter (XSS) and tell browser to block detected attacks
+        X-XSS-Protection "1; mode=block"
+
+        # Prevent some browsers from MIME-sniffing a response away from the declared Content-Type
+        X-Content-Type-Options "nosniff"
+
+        # Disable some features
+        Permissions-Policy "accelerometer=(),ambient-light-sensor=(),autoplay=(),camera=(),encrypted-media=(),focus-without-user-activation=(),geolocation=(),gyroscope=(),magnetometer=(),microphone=(),midi=(),payment=(),picture-in-picture=(),speaker=(),sync-xhr=(),usb=(),vr=()"
+
+        # Referer
+        Referrer-Policy "no-referrer"
+
+        # X-Robots-Tag
+        X-Robots-Tag "noindex, noarchive, nofollow"
+
+        # Remove Server header
+        -Server
+
+        # Frame Options
+        X-Frame-Options "DENY"
+  }
+
+
+  handle {
+        encode zstd gzip
+
+        reverse_proxy gophish:80 
+  }
+
+}
+
+https://admin.gophish.example.com {
+  import tls
+
+  header {
+        # Enable HTTP Strict Transport Security (HSTS) to force clients to always connect via HTTPS
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+        # Enable cross-site filter (XSS) and tell browser to block detected attacks
+        X-XSS-Protection "1; mode=block"
+
+        # Prevent some browsers from MIME-sniffing a response away from the declared Content-Type
+        X-Content-Type-Options "nosniff"
+
+        # Disable some features
+        Permissions-Policy "accelerometer=(),ambient-light-sensor=(),autoplay=(),camera=(),encrypted-media=(),focus-without-user-activation=(),geolocation=(),gyroscope=(),magnetometer=(),microphone=(),midi=(),payment=(),picture-in-picture=(),speaker=(),sync-xhr=(),usb=(),vr=()"
+
+        # Referer
+        Referrer-Policy "no-referrer"
+
+        # X-Robots-Tag
+        X-Robots-Tag "noindex, noarchive, nofollow"
+
+        # Remove Server header
+        -Server
+
+        # Frame Options
+        X-Frame-Options "DENY"
+  }
+
+  ipfilter {
+        rule allow
+        ip 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16
+  }
+
+  handle {
+        encode zstd gzip
+
+        reverse_proxy gophish:3333 
+  }
+
+}

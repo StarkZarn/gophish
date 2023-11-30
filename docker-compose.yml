@@ -1,0 +1,79 @@
+version: '3'
+
+networks:
+  gophish:
+    driver: bridge
+  reverse_proxy:
+    driver: bridge
+
+volumes:
+  gophish_dbdata:
+  caddy_data:
+  caddy_config:
+  
+services:
+  gophish:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: gophish
+    restart: unless-stopped
+      #    ports:
+      #      - 8443:8443
+      #      - 8080:8080
+      #      - 3333:3333
+    networks:
+      - gophish
+      - reverse_proxy
+    volumes:
+      - ./config.json.mariadb:/opt/gophish/config.json
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+    environment:
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+      - DB_NAME=${DB_NAME}
+
+  gophish_db:
+    image: docker.io/mariadb:latest
+    container_name: gophish_db
+    restart: unless-stopped
+    networks:
+      - gophish
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+    volumes:
+      - gophish_dbdata:/var/lib/mysql
+    environment:
+      - MARIADB_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASS}
+      - MYSQL_DATABASE=${DB_NAME}
+        
+  caddy:
+    image: docker.io/caddy:alpine
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 80:80
+      - 443:443
+      - 443:443/udp
+    container_name: caddy
+    restart: unless-stopped
+    networks:
+      - gophish
+      - reverse_proxy
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+      - ./docker/Caddyfile:/etc/caddy/Caddyfile:ro
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+
+
