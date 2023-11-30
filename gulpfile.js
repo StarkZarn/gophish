@@ -90,7 +90,7 @@ styles = function () {
             css_directory + 'select2-bootstrap.min.css',
         ])
         .pipe(cleanCSS({
-            compatibilty: 'ie9'
+            compatibilty: '*'
         }))
         .pipe(concat('gophish.css'))
         .pipe(gulp.dest(dest_css_directory));
