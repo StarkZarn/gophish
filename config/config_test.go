@@ -29,14 +29,6 @@ var validConfig = []byte(`{
 	"contact_address": ""
 }`)
 
-func replaceEnvVars(input string) string {
-	re := regexp.MustCompile("\\$\\{([A-Za-z_]+)\\}")
-	return re.ReplaceAllStringFunc(input, func(match string) string {
-		envVarName := re.FindStringSubmatch(match)[1]
-		envVarValue := os.Getenv(envVarName)
-		return envVarValue
-	})
-}
 
 func createTemporaryConfig(t *testing.T) *os.File {
 	f, err := ioutil.TempFile("", "gophish-config")
