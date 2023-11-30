@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = {
+    mode: 'production', // or 'development'
     context: path.resolve(__dirname, 'static', 'js', 'src', 'app'),
     entry: {
         passwords: './passwords',
@@ -11,6 +12,9 @@ module.exports = {
         path: path.resolve(__dirname, 'static', 'js', 'dist', 'app'),
         filename: '[name].min.js'
     },
+    resolve: {
+        extensions: ['.js']
+    },
     module: {
         rules: [{
             test: /\.js$/,
@@ -20,4 +24,4 @@ module.exports = {
             }
         }]
     }
-}
+};
