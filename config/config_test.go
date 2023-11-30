@@ -29,10 +29,19 @@ var validConfig = []byte(`{
 	"contact_address": ""
 }`)
 
+func replaceEnvVars(input string) string {
+	re := regexp.MustCompile("\\$\\{([A-Za-z_]+)\\}")
+	return re.ReplaceAllStringFunc(input, func(match string) string {
+		envVarName := re.FindStringSubmatch(match)[1]
+		envVarValue := os.Getenv(envVarName)
+		return envVarValue
+	})
+}
+
 func createTemporaryConfig(t *testing.T) *os.File {
 	f, err := ioutil.TempFile("", "gophish-config")
 	if err != nil {
-		t.Fatalf("unable to create temporary config: %v", err)
+		t.Fatalf("unable to create a temporary config: %v", err)
 	}
 	return f
 }
@@ -40,7 +49,7 @@ func createTemporaryConfig(t *testing.T) *os.File {
 func removeTemporaryConfig(t *testing.T, f *os.File) {
 	err := f.Close()
 	if err != nil {
-		t.Fatalf("unable to remove temporary config: %v", err)
+		t.Fatalf("unable to remove a temporary config: %v", err)
 	}
 }
 
@@ -49,16 +58,16 @@ func TestLoadConfig(t *testing.T) {
 	defer removeTemporaryConfig(t, f)
 	_, err := f.Write(validConfig)
 	if err != nil {
-		t.Fatalf("error writing config to temporary file: %v", err)
+		t.Fatalf("error writing config to a temporary file: %v", err)
 	}
 	// Load the valid config
 	conf, err := LoadConfig(f.Name())
 	if err != nil {
-		t.Fatalf("error loading config from temporary file: %v", err)
+		t.Fatalf("error loading config from a temporary file: %v", err)
 	}
 
 	expectedConfig := &Config{}
-	err = json.Unmarshal(validConfig, &expectedConfig)
+	err = json.Unmarshal([]byte(replaceEnvVars(string(validConfig))), &expectedConfig)
 	if err != nil {
 		t.Fatalf("error unmarshaling config: %v", err)
 	}
@@ -73,6 +82,6 @@ func TestLoadConfig(t *testing.T) {
 	// Load an invalid config
 	_, err = LoadConfig("bogusfile")
 	if err == nil {
-		t.Fatalf("expected error when loading invalid config, but got %v", err)
+		t.Fatalf("expected an error when loading an invalid config, but got %v", err)
 	}
 }
