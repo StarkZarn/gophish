@@ -11,7 +11,7 @@ require (
 	github.com/emersion/go-message v0.17.0
 	github.com/go-sql-driver/mysql v1.7.1
 	github.com/gorilla/context v1.1.2
-	github.com/gorilla/csrf v1.6.2
+	github.com/gorilla/csrf v1.7.2
 	github.com/gorilla/handlers v1.4.2
 	github.com/gorilla/mux v1.8.1
 	github.com/gorilla/securecookie v1.1.2
@@ -38,7 +38,6 @@ require (
 	github.com/konsorten/go-windows-terminal-sequences v1.0.1 // indirect
 	github.com/kylelemons/go-gypsy v0.0.0-20160905020020-08cad365cd28 // indirect
 	github.com/lib/pq v1.1.1 // indirect
-	github.com/pkg/errors v0.8.0 // indirect
 	github.com/ziutek/mymysql v1.5.4 // indirect
 	golang.org/x/net v0.17.0 // indirect
 	golang.org/x/sys v0.13.0 // indirect
