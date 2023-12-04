@@ -21,7 +21,7 @@ require (
 	github.com/jordan-wright/unindexed v0.0.0-20181209214434-78fa79113c0f
 	github.com/mattn/go-sqlite3 v1.14.18
 	github.com/oschwald/maxminddb-golang v1.12.0
-	github.com/sirupsen/logrus v1.4.2
+	github.com/sirupsen/logrus v1.9.3
 	golang.org/x/crypto v0.16.0
 	golang.org/x/time v0.5.0
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
@@ -36,7 +36,6 @@ require (
 	github.com/emersion/go-textwrapper v0.0.0-20200911093747-65d896831594 // indirect
 	github.com/felixge/httpsnoop v1.0.3 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
-	github.com/konsorten/go-windows-terminal-sequences v1.0.1 // indirect
 	github.com/kylelemons/go-gypsy v0.0.0-20160905020020-08cad365cd28 // indirect
 	github.com/lib/pq v1.1.1 // indirect
 	github.com/ziutek/mymysql v1.5.4 // indirect
