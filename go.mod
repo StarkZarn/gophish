@@ -23,7 +23,7 @@ require (
 	github.com/oschwald/maxminddb-golang v1.12.0
 	github.com/sirupsen/logrus v1.4.2
 	golang.org/x/crypto v0.14.0
-	golang.org/x/time v0.0.0-20200416051211-89c76fbcd5d1
+	golang.org/x/time v0.5.0
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
 	gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405
 )
