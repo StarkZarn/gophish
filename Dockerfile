@@ -10,7 +10,7 @@ RUN npm install --omit=dev
 
 
 # Build Golang binary
-FROM golang:1.21.4 AS build-golang
+FROM golang:1.22 AS build-golang
 
 WORKDIR /go/src/github.com/StarkZarn/gophish
 COPY . .
