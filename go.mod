@@ -9,7 +9,7 @@ require (
 	github.com/StarkZarn/gomail v0.0.0-20231129215025-a0328d5028a6
 	github.com/emersion/go-imap v1.2.1
 	github.com/emersion/go-message v0.18.0
-	github.com/go-sql-driver/mysql v1.7.1
+	github.com/go-sql-driver/mysql v1.8.0
 	github.com/gorilla/context v1.1.2
 	github.com/gorilla/csrf v1.7.2
 	github.com/gorilla/handlers v1.5.2
@@ -29,6 +29,7 @@ require (
 )
 
 require (
+	filippo.io/edwards25519 v1.1.0 // indirect
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751 // indirect
 	github.com/alecthomas/units v0.0.0-20190924025748-f65c72e2690d // indirect
 	github.com/andybalholm/cascadia v1.3.2 // indirect
