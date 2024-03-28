@@ -9,7 +9,7 @@ require (
 	github.com/StarkZarn/gomail v0.0.0-20231129215025-a0328d5028a6
 	github.com/emersion/go-imap v1.2.1
 	github.com/emersion/go-message v0.18.0
-	github.com/go-sql-driver/mysql v1.8.0
+	github.com/go-sql-driver/mysql v1.8.1
 	github.com/gorilla/context v1.1.2
 	github.com/gorilla/csrf v1.7.2
 	github.com/gorilla/handlers v1.5.2
