@@ -8,7 +8,7 @@ require (
 	github.com/PuerkitoBio/goquery v1.9.1
 	github.com/StarkZarn/gomail v0.0.0-20231129215025-a0328d5028a6
 	github.com/emersion/go-imap v1.2.1
-	github.com/emersion/go-message v0.18.0
+	github.com/emersion/go-message v0.18.1
 	github.com/go-sql-driver/mysql v1.8.1
 	github.com/gorilla/context v1.1.2
 	github.com/gorilla/csrf v1.7.2
@@ -34,7 +34,6 @@ require (
 	github.com/alecthomas/units v0.0.0-20190924025748-f65c72e2690d // indirect
 	github.com/andybalholm/cascadia v1.3.2 // indirect
 	github.com/emersion/go-sasl v0.0.0-20200509203442-7bfe0ed36a21 // indirect
-	github.com/emersion/go-textwrapper v0.0.0-20200911093747-65d896831594 // indirect
 	github.com/felixge/httpsnoop v1.0.3 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/kylelemons/go-gypsy v0.0.0-20160905020020-08cad365cd28 // indirect
