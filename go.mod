@@ -5,7 +5,7 @@ go 1.22
 require (
 	bitbucket.org/liamstask/goose v0.0.0-20150115234039-8488cc47d90c
 	github.com/NYTimes/gziphandler v1.1.1
-	github.com/PuerkitoBio/goquery v1.9.1
+	github.com/PuerkitoBio/goquery v1.9.2
 	github.com/StarkZarn/gomail v0.0.0-20231129215025-a0328d5028a6
 	github.com/emersion/go-imap v1.2.1
 	github.com/emersion/go-message v0.18.1
@@ -39,7 +39,7 @@ require (
 	github.com/kylelemons/go-gypsy v0.0.0-20160905020020-08cad365cd28 // indirect
 	github.com/lib/pq v1.1.1 // indirect
 	github.com/ziutek/mymysql v1.5.4 // indirect
-	golang.org/x/net v0.23.0 // indirect
+	golang.org/x/net v0.24.0 // indirect
 	golang.org/x/sys v0.19.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 	gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc // indirect
